@@ -8,24 +8,24 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <style>
-.generator-section {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 1.5rem;
-}
-
-.generator-shell {
-  width: 95%;
-  display: flex;
-}
-
-@media screen and (max-width: 800px) {
-  .generator-shell {
+  .generator-section {
+    display: flex;
+    justify-content: center;
     width: 100%;
+    box-sizing: border-box;
+    padding: 1.5rem;
   }
-}
+
+  .generator-shell {
+    width: 95%;
+    display: flex;
+  }
+
+  @media screen and (max-width: 800px) {
+    .generator-shell {
+      width: 100%;
+    }
+  }
 </style>
 
 <section class="generator-section">
@@ -33,6 +33,5 @@
     <app-generator></app-generator>
   </div>
 </section>
-
 
 <router-outlet />

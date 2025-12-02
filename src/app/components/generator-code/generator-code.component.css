@@ -32,7 +32,8 @@
   color: #e2e8f0;
   border-radius: 10px;
   padding: 1rem;
-  font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-family:
+    'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
   font-size: 0.95rem;
   overflow: auto;
   line-height: 1.4;

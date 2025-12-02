@@ -16,7 +16,7 @@
       "preLaunchTask": "npm: start",
       "url": "http://localhost:4200/",
       "runtimeExecutable": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
-      "userDataDir": true,
+      "userDataDir": true
     },
     {
       "name": "Vitest UI (Chrome)",

@@ -6,7 +6,7 @@ import {
   Input,
   OnDestroy,
   signal,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
@@ -18,7 +18,7 @@ import { GeneratorFormat } from '../../models/generator-format';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './generator-preview.component.html',
-  styleUrl: './generator-preview.component.css'
+  styleUrl: './generator-preview.component.css',
 })
 export class GeneratorPreviewComponent implements AfterViewInit, OnDestroy {
   @Input({ required: true }) start = 1;
@@ -52,7 +52,7 @@ export class GeneratorPreviewComponent implements AfterViewInit, OnDestroy {
       return;
     }
   }
-  
+
   public ngOnDestroy(): void {
     this.resizeObserver?.disconnect();
     if (this.resizeListener) {
@@ -75,7 +75,7 @@ export class GeneratorPreviewComponent implements AfterViewInit, OnDestroy {
       this.javascript,
       '</script>',
       '</body>',
-      '</html>'
+      '</html>',
     ].join('\n');
   }
 }

@@ -7,7 +7,7 @@ import { GeneratorComponent } from './components/generator/generator.component';
   selector: 'app-root',
   imports: [RouterOutlet, GeneratorComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
   protected readonly title = signal('ng-advent-calendar-generator');

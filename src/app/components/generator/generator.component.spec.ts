@@ -15,12 +15,12 @@ describe('GeneratorComponent', () => {
       javascript: 'const config = {};',
       css: 'body { background: #000; }',
       previewDays: [1, 2, 3],
-      previewSizes: ['size-1x1', 'size-1x1', 'size-1x1']
+      previewSizes: ['size-1x1', 'size-1x1', 'size-1x1'],
     });
 
     await TestBed.configureTestingModule({
       imports: [GeneratorComponent],
-      providers: [{ provide: GeneratorService, useValue: { buildCodeBlocks } }]
+      providers: [{ provide: GeneratorService, useValue: { buildCodeBlocks } }],
     }).compileComponents();
   });
 
@@ -52,7 +52,7 @@ describe('GeneratorComponent', () => {
       endColor: '#654321',
       fontSize: 1.25,
       fontFamily: 'Georgia, serif',
-      fontColor: '#abcdef'
+      fontColor: '#abcdef',
     });
   });
 

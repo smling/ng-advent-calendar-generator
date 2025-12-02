@@ -12,9 +12,15 @@ import { GeneratorPreviewComponent } from '../generator-preview/generator-previe
 @Component({
   selector: 'app-generator',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatTabsModule, GeneratorPreviewComponent, GeneratorCodeComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatTabsModule,
+    GeneratorPreviewComponent,
+    GeneratorCodeComponent,
+  ],
   templateUrl: './generator.component.html',
-  styleUrl: './generator.component.css'
+  styleUrl: './generator.component.css',
 })
 export class GeneratorComponent {
   constructor(private readonly generatorService: GeneratorService) {}
@@ -23,21 +29,21 @@ export class GeneratorComponent {
   protected readonly CalendarItemLayout = CalendarItemLayout;
   protected readonly formatOptions = [
     { label: 'Random', value: GeneratorFormat.Random },
-    { label: 'Sequential', value: GeneratorFormat.Sequential }
+    { label: 'Sequential', value: GeneratorFormat.Sequential },
   ];
   protected readonly backgroundFormatOptions = [
     { label: 'Linear gradient', value: 'gradient' as const },
-    { label: 'Solid color', value: 'solid' as const }
+    { label: 'Solid color', value: 'solid' as const },
   ];
   protected readonly layoutOptions = [
     { label: 'Fixed', value: CalendarItemLayout.Fixed },
-    { label: 'Random', value: CalendarItemLayout.Random }
+    { label: 'Random', value: CalendarItemLayout.Random },
   ];
 
   protected readonly fontFamilyOptions = [
     { label: 'Inter (default)', value: 'Inter, system-ui, -apple-system, sans-serif' },
     { label: 'Georgia', value: 'Georgia, serif' },
-    { label: 'Courier New', value: '"Courier New", monospace' }
+    { label: 'Courier New', value: '"Courier New", monospace' },
   ];
 
   protected activeTabIndex = signal(0);
@@ -58,7 +64,7 @@ export class GeneratorComponent {
 
     return [
       start <= 0 ? 'Start number must be a positive integer.' : '',
-      end <= 0 ? 'End number must be a positive integer.' : ''
+      end <= 0 ? 'End number must be a positive integer.' : '',
     ].filter(Boolean);
   });
   protected readonly codeBlocks = computed(() => {
@@ -72,7 +78,7 @@ export class GeneratorComponent {
       endColor: this.endColor(),
       fontSize: this.fontSize(),
       fontFamily: this.fontFamily(),
-      fontColor: this.fontColor()
+      fontColor: this.fontColor(),
     });
   });
 

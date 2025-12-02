@@ -8,7 +8,7 @@ import { GeneratorPreviewComponent } from './generator-preview.component';
 describe('GeneratorPreviewComponent', () => {
   it('builds a preview document containing HTML, CSS, and JS', () => {
     const fixture = TestBed.configureTestingModule({
-      imports: [GeneratorPreviewComponent]
+      imports: [GeneratorPreviewComponent],
     }).createComponent(GeneratorPreviewComponent);
 
     const component = fixture.componentInstance as any;

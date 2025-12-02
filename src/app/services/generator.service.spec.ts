@@ -26,7 +26,7 @@ describe('GeneratorService', () => {
       endColor: '#6366f1',
       fontSize: 1.1,
       fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-      fontColor: '#e2e8f0'
+      fontColor: '#e2e8f0',
     });
 
     expect(result.previewDays).toEqual([1, 2, 3]);
@@ -53,7 +53,7 @@ describe('GeneratorService', () => {
       endColor: '#222222',
       fontSize: 1.5,
       fontFamily: 'Georgia, serif',
-      fontColor: '#ffffff'
+      fontColor: '#ffffff',
     });
 
     expect(result.previewSizes).toEqual(['size-1x1', 'size-1x2', 'size-2x2']);
@@ -73,7 +73,7 @@ describe('GeneratorService', () => {
       endColor: '#ffffff',
       fontSize: 1,
       fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-      fontColor: '#000000'
+      fontColor: '#000000',
     });
 
     expect(result.previewDays).toEqual([]);

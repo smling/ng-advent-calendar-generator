@@ -1,4 +1,4 @@
 export enum CalendarItemLayout {
   Fixed = 'fixed',
-  Random = 'random'
+  Random = 'random',
 }

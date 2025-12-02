@@ -25,7 +25,7 @@ export interface GeneratorCodeBlocks {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GeneratorService {
   public buildCodeBlocks(config: GeneratorConfig): GeneratorCodeBlocks {
@@ -34,7 +34,7 @@ export class GeneratorService {
 
     const range = Array.from(
       { length: Math.max(0, config.end - config.start + 1) },
-      (_, index) => config.start + index
+      (_, index) => config.start + index,
     );
     const previewDays = format === 'random' ? this.shuffle(range) : range;
     const previewSizes =
@@ -85,7 +85,7 @@ export class GeneratorService {
       '  container.style.setProperty("--calendar-font-family", config.fontFamily);',
       '  container.style.setProperty("--calendar-font-color", config.fontColor);',
       '  container.innerHTML = days',
-      "    .map((day, index) => `<div class=\"calendar__day ${sizes[index] || 'size-1x1'}\">${day}</div>`)",
+      '    .map((day, index) => `<div class="calendar__day ${sizes[index] || \'size-1x1\'}">${day}</div>`)',
       '    .join("");',
       '  container.querySelectorAll(".calendar__day").forEach((el, index) => {',
       '    el.addEventListener("click", () => onDayClicked(el, days[index]));',
@@ -96,7 +96,7 @@ export class GeneratorService {
       'const sizes = config.layout === "random" ? config.sizes : config.sizes.map(() => "size-1x1");',
       "renderCalendar('#calendar', days, sizes);",
       '',
-      `// Preview: ${JSON.stringify(previewDays)}`
+      `// Preview: ${JSON.stringify(previewDays)}`,
     ].join('\n');
 
     const css = [
@@ -156,7 +156,7 @@ export class GeneratorService {
       '.calendar__day.size-2x2 {',
       '  grid-row: span 2;',
       '  grid-column: span 2;',
-      '}'
+      '}',
     ].join('\n');
 
     return { html, javascript, css, previewDays, previewSizes };

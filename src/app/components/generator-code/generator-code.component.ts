@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './generator-code.component.html',
-  styleUrl: './generator-code.component.css'
+  styleUrl: './generator-code.component.css',
 })
 export class GeneratorCodeComponent {
   @Input({ required: true }) html = '';
