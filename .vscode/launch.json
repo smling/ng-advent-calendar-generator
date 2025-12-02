@@ -19,11 +19,20 @@
       "userDataDir": true,
     },
     {
-      "name": "ng test",
+      "name": "Vitest UI (Chrome)",
       "type": "chrome",
       "request": "launch",
-      "preLaunchTask": "npm: test",
-      "url": "http://localhost:9876/debug.html"
+      "preLaunchTask": "npm: test:ui",
+      "url": "http://localhost:51205/__vitest__/"
+    },
+    {
+      "name": "Vitest UI - Windows - Brave",
+      "type": "chrome",
+      "request": "launch",
+      "preLaunchTask": "npm: test:ui",
+      "url": "http://localhost:51205/__vitest__/",
+      "runtimeExecutable": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+      "userDataDir": true
     }
   ]
 }
