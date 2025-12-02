@@ -1,0 +1,47 @@
+<div class="preview" aria-live="polite">
+  @if (showSummary) {
+    <div class="summary">
+      <div class="summary__item">
+        <span class="summary__label">Start</span>
+        <span class="summary__value">{{ start }}</span>
+      </div>
+      <div class="summary__item">
+        <span class="summary__label">End</span>
+        <span class="summary__value">{{ end }}</span>
+      </div>
+      <div class="summary__item">
+        <span class="summary__label">Format</span>
+        <span class="summary__value">
+          {{ format === GeneratorFormat.Sequential ? 'Sequential' : 'Random' }}
+        </span>
+      </div>
+      <div class="summary__item">
+        <span class="summary__label">Layout</span>
+        <span class="summary__value">
+          {{ calendarItemLayout === CalendarItemLayout.Random ? 'Random' : 'Fixed' }}
+        </span>
+      </div>
+    </div>
+    @if (validationSummary.length) {
+      <ul class="validation">
+        @for (message of validationSummary; track message) {
+          <li>{{ message }}</li>
+        }
+      </ul>
+    }
+  } 
+
+  <div class="rendered-preview">
+    <p class="code-heading">Live preview</p>
+    <p class="preview-hint">Tip: click a day tile to trigger onDayClicked(dayElement, dayValue).</p>
+    <div class="frame-shell" #frameContainer>
+      <iframe
+        class="preview-frame"
+        title="Generated calendar preview"
+        sandbox="allow-scripts"
+        [srcdoc]="sanitizedSrcdoc"
+        [style.width.px]="iframeWidth() || null"
+      ></iframe>
+    </div>
+  </div>
+</div>

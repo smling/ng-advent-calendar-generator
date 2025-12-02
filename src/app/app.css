@@ -1,0 +1,9 @@
+main {
+  margin-bottom: 2rem;
+}
+
+.generator-section {
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem 2rem;
+}
