@@ -1,59 +1,64 @@
-# NgAdventCalendarGenerator
+# NG Advent Calendar Generator 🎄
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.1.
+Generate ready-to-embed advent calendar HTML/CSS/JS with a live preview. Built with Angular 21 and Angular Material; defaults to a two-column layout: form on the left, Preview/Code tabs on the right.
 
-## Development server
+## Features at a glance
+| ✅ | What | Details |
+| --- | --- | --- |
+| 🎯 | Number range | Set start/end numbers (defaults 1–24); sequential or randomized ordering. |
+| 🧩 | Layout styles | Fixed grid or random mosaic tile sizes for a denser layout. |
+| 🌈 | Tile styling | Gradient or solid backgrounds, custom start/end colors, font size/family/color. |
+| 🖼️ | Live sandbox | Preview tab renders the calendar in a sandboxed iframe so clicks and styling are safe. |
+| 💻 | Copy-paste code | Code tab shows the generated HTML/JS/CSS, including the `onDayClicked(dayElement, dayValue)` hook. |
 
-To start a local development server, run:
+## Using the page
+| Step | What to do |
+| --- | --- |
+| 1 | Choose start/end numbers (positive integers). Validation hints appear if values are invalid. |
+| 2 | Pick a format: Random shuffles once, Sequential lists numbers in order. |
+| 3 | Choose a calendar item layout: Fixed (uniform tiles) or Random (varied tile sizes). |
+| 4 | Select background format: Linear gradient (start + end colors) or Solid color (start color only). |
+| 5 | Tune typography: font size (rem), font family, and font color. |
+| 6 | Open **Preview** to see the sandboxed calendar; click a tile to trigger `onDayClicked`. |
+| 7 | Open **Code** to copy the HTML, JavaScript, and CSS snippets for your site/app. |
 
-```bash
-ng serve
-```
+## Dependencies
+| Type | Packages |
+| --- | --- |
+| Runtime | @angular/core, @angular/common, @angular/material, @angular/router, rxjs, tslib |
+| Dev | @angular/cli, @angular/build, @angular/compiler-cli, typescript, vitest, jsdom |
+| Package manager | npm 11.x (see `packageManager` in `package.json`) |
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Local setup
+1. Install Node (matching npm 11.x).
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the dev server (http://localhost:4200/):
+   ```bash
+   npm start
+   # or: ng serve
+   ```
+4. Run tests (Vitest via Angular):
+   ```bash
+   npm test
+   # add -- --coverage for coverage
+   ```
+5. Build for production (outputs to `dist/`):
+   ```bash
+   npm run build
+   ```
 
-## Code scaffolding
+## Project scripts
+| Command | Purpose |
+| --- | --- |
+| `npm start` | Serve the app with live reload at http://localhost:4200/. |
+| `npm run build` | Production build to `dist/`. |
+| `npm test` | Run Vitest unit tests (JSDOM). |
+| `ng generate component <name>` | Scaffold new Angular components/directives/pipes. |
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Notes
+- Generated preview uses precomputed random days/sizes so the embedded snippet stays stable across renders.
+- The sandboxed iframe keeps the preview isolated while still allowing click handling via `onDayClicked`.
+- Global styles live in `src/styles.css`; entry points are `src/main.ts` and `src/index.html`.

@@ -1,9 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+import { GeneratorComponent } from './components/generator/generator.component';
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, GeneratorComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

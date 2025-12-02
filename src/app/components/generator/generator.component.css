@@ -1,0 +1,101 @@
+.generator-card {
+  border: 1px solid color-mix(in srgb, #000 8%, transparent);
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+  min-height: 85vh;
+  height: 100%;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: #5a5a5a;
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.generator-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.field__label {
+  font-weight: 600;
+}
+
+.field__help {
+  color: #666;
+  font-size: 0.8125rem;
+}
+
+input,
+select {
+  border: 1px solid #c6c6c6;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+}
+
+.color-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.generator-layout {
+  display: grid;
+  gap: 1rem;
+  align-items: stretch;
+  height: 100%;
+}
+
+mat-tab-group {
+  margin-top: 0.5rem;
+}
+
+.generator-tabs {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.generator-tabs ::ng-deep .mat-mdc-tab-body-wrapper {
+  flex: 1;
+}
+
+.generator-tabs ::ng-deep .mat-mdc-tab-body {
+  height: 100%;
+  display: flex;
+}
+
+.generator-tabs ::ng-deep .mat-mdc-tab-body-content {
+  height: 100%;
+  display: flex;
+}
+
+@media (min-width: 900px) {
+  .generator-layout {
+    grid-template-columns: minmax(360px, 1fr) minmax(520px, 1.4fr);
+    align-items: start;
+  }
+
+  .generator-tabs {
+    margin-top: 0;
+  }
+}

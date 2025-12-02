@@ -1,0 +1,176 @@
+<section class="generator-card">
+  <p class="eyebrow">Calendar generator</p>
+  <div class="generator-layout">
+    <form class="generator-form" aria-label="Generator options" novalidate>
+      <label class="field">
+        <span class="field__label">Start number</span>
+        <input
+          name="startNumber"
+          type="number"
+          inputmode="numeric"
+          min="1"
+          step="1"
+          [ngModel]="startNumber()"
+          (ngModelChange)="onStartChange($event)"
+          aria-describedby="startNumberHelp"
+        />
+        <small id="startNumberHelp" class="field__help">Positive integer, default 1</small>
+      </label>
+
+      <label class="field">
+        <span class="field__label">End number</span>
+        <input
+          name="endNumber"
+          type="number"
+          inputmode="numeric"
+          min="1"
+          step="1"
+          [ngModel]="endNumber()"
+          (ngModelChange)="onEndChange($event)"
+          aria-describedby="endNumberHelp"
+        />
+        <small id="endNumberHelp" class="field__help">Positive integer, default 24</small>
+      </label>
+
+      <label class="field">
+        <span class="field__label">Format</span>
+        <select
+          name="format"
+          [ngModel]="format()"
+          (ngModelChange)="onFormatChange($event)"
+          aria-describedby="formatHelp"
+        >
+          @for (option of formatOptions; track option.value) {
+            <option [ngValue]="option.value">{{ option.label }}</option>
+          }
+        </select>
+        <small id="formatHelp" class="field__help">Sequential or random arrangement</small>
+      </label>
+
+      <label class="field">
+        <span class="field__label">Calendar item layout</span>
+        <select
+          name="calendarItemLayout"
+          [ngModel]="calendarItemLayout()"
+          (ngModelChange)="onLayoutChange($event)"
+          aria-describedby="layoutHelp"
+        >
+          @for (option of layoutOptions; track option.value) {
+            <option [ngValue]="option.value">{{ option.label }}</option>
+          }
+        </select>
+        <small id="layoutHelp" class="field__help">Fixed sizes or random mosaic</small>
+      </label>
+
+      <label class="field">
+        <span class="field__label">Background format</span>
+        <select
+          name="backgroundFormat"
+          [ngModel]="backgroundFormat()"
+          (ngModelChange)="onBackgroundFormatChange($event)"
+          aria-describedby="backgroundFormatHelp"
+        >
+          @for (option of backgroundFormatOptions; track option.value) {
+            <option [ngValue]="option.value">{{ option.label }}</option>
+          }
+        </select>
+        <small id="backgroundFormatHelp" class="field__help">Use a gradient or solid tile color</small>
+      </label>
+
+      <div class="color-row">
+        <label class="field">
+          <span class="field__label">Start color</span>
+          <input
+            type="color"
+            name="startColor"
+            [ngModel]="startColor()"
+            (ngModelChange)="onStartColorChange($event)"
+            aria-label="Start color"
+          />
+        </label>
+
+        <label class="field">
+          <span class="field__label">End color</span>
+          <input
+            type="color"
+            name="endColor"
+            [disabled]="backgroundFormat() === 'solid'"
+            [ngModel]="endColor()"
+            (ngModelChange)="onEndColorChange($event)"
+            aria-label="End color"
+          />
+        </label>
+      </div>
+
+      <div class="color-row">
+        <label class="field">
+          <span class="field__label">Font size (rem)</span>
+          <input
+            type="number"
+            name="fontSize"
+            min="0.5"
+            step="0.05"
+            [ngModel]="fontSize()"
+            (ngModelChange)="onFontSizeChange($event)"
+            aria-label="Font size in rem"
+          />
+        </label>
+
+        <label class="field">
+          <span class="field__label">Font family</span>
+          <select
+            name="fontFamily"
+            [ngModel]="fontFamily()"
+            (ngModelChange)="fontFamily.set($event)"
+          >
+            @for (option of fontFamilyOptions; track option.value) {
+              <option [ngValue]="option.value">{{ option.label }}</option>
+            }
+          </select>
+        </label>
+      </div>
+
+      <label class="field">
+        <span class="field__label">Font color</span>
+        <input
+          type="color"
+          name="fontColor"
+          [ngModel]="fontColor()"
+          (ngModelChange)="fontColor.set($event || '#e2e8f0')"
+          aria-label="Font color"
+        />
+      </label>
+    </form>
+
+    <mat-tab-group
+      class="generator-tabs"
+      animationDuration="250ms"
+      [selectedIndex]="activeTabIndex()"
+      (selectedIndexChange)="onTabChange($event)"
+      preserveContent
+    >
+      <mat-tab label="Preview">
+        @if (activeTabIndex() === 0) {
+          <app-generator-preview
+            [start]="startNumber()"
+            [end]="endNumber()"
+            [format]="format()"
+            [calendarItemLayout]="calendarItemLayout()"
+            [validationSummary]="validationSummary()"
+            [html]="codeBlocks().html"
+            [javascript]="codeBlocks().javascript"
+            [css]="codeBlocks().css"
+          />
+        }
+      </mat-tab>
+
+      <mat-tab label="Code">
+        <app-generator-code
+          [html]="codeBlocks().html"
+          [javascript]="codeBlocks().javascript"
+          [css]="codeBlocks().css"
+        />
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</section>
