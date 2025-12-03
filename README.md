@@ -6,14 +6,14 @@ Generate ready-to-embed advent calendar HTML/CSS/JS with a live preview. Built w
 
 ## 🔎 Quick highlights
 
-| What            | Details                                                                                                                       |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Number range    | Defaults to 1–24; inputs are coerced to positive integers with sane fallbacks.                                                |
-| Format          | Sequential order or a one-time random shuffle; precomputed days are baked into the snippet for deterministic embeds.         |
-| Layout styles   | Fixed grid or random mosaic sizes (four variants) generated once and embedded alongside the day list.                         |
-| Tile styling    | Gradient or solid backgrounds (solid reuses start color) plus font size/family/color via CSS variables.                       |
-| Live sandbox    | Preview tab renders the HTML/CSS/JS in a sanitized `srcdoc` iframe (`allow-scripts`) isolated from the app.                  |
-| Copy-paste code | Code tab shows HTML, JavaScript, and CSS, including `onDayClicked(dayElement, dayValue)` with a 300ms highlight outline.      |
+| What            | Details                                                                                                                  |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Number range    | Defaults to 1–24; inputs are coerced to positive integers with sane fallbacks.                                           |
+| Format          | Sequential order or a one-time random shuffle; precomputed days are baked into the snippet for deterministic embeds.     |
+| Layout styles   | Fixed grid or random mosaic sizes (four variants) generated once and embedded alongside the day list.                    |
+| Tile styling    | Gradient or solid backgrounds (solid reuses start color) plus font size/family/color via CSS variables.                  |
+| Live sandbox    | Preview tab renders the HTML/CSS/JS in a sanitized `srcdoc` iframe (`allow-scripts`) isolated from the app.              |
+| Copy-paste code | Code tab shows HTML, JavaScript, and CSS, including `onDayClicked(dayElement, dayValue)` with a 300ms highlight outline. |
 
 ## 🚀 How to use
 
