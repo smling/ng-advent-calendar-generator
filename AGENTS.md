@@ -43,8 +43,8 @@
 
 - Angular Material is installed with a custom theme (`src/custom-theme.scss`) and async animations enabled in `app.config.ts`.
 - Generator screen uses a two-column layout on desktop: form on the left, Material tabs (Preview/Code) on the right; the shell is centered at ~95% width (max 1400px).
-- Preview tab renders a sandboxed iframe (`srcdoc` sanitized with `DomSanitizer`) showing the generated calendar; height expanded to reduce scroll. Summary cards sit above the iframe.
-- Generator options include format (sequential/random) and calendar item layout (fixed/random). Random choices are precomputed once (days and tile sizes) and injected into the code snippet to avoid re-randomizing on render.
-- Additional customization: background format (gradient/solid) with color pickers, tile font size/family/color; preview tab can optionally hide/show summary.
-- Generated code defines `onDayClicked(dayElement, dayValue)` and binds each tile click inside the iframe; tiles get a transient highlight on click.
-- Calendar CSS in the snippet uses a dense grid (min 120px tracks, auto-rows 120px, min-height 480px) and random size classes when requested to better fill space.
+- Form state uses Angular signals; start/end inputs are coerced to positive integers (fallback 1/24), format/layout/background options are sanitized to known enums, and color/typography controls reset to defaults if invalid.
+- `GeneratorService.buildCodeBlocks` builds the inclusive range with `Math.max(0, end - start + 1)`, shuffles once when format is random, and generates random tile sizes from four variants; the resulting `previewDays`/`previewSizes` are baked into the snippet to keep preview and embeds stable.
+- Generated JS seeds a `config` object with precomputed `days`/`sizes`; `buildDays` reuses `config.days` for random and recomputes for sequential, while `renderCalendar` sets CSS vars for gradient vs solid backgrounds (solid reuses start color) and font size/family/color, forcing `size-1x1` when layout is fixed.
+- `onDayClicked` logs the click and toggles an `is-active` outline for 300ms; CSS renders a dense grid (`auto-fill minmax(120px, 1fr)`, `grid-auto-rows: 120px`, `grid-auto-flow: dense`, `min-height: 480px`) with size classes `size-1x1/1x2/2x1/2x2`.
+- Preview tab builds a sanitized `srcdoc` string from the provided HTML/CSS/JS and feeds it to a sandboxed iframe (`allow-scripts`); the summary/validation panel only renders when `showSummary` is true (generator leaves it off by default), and the preview area enforces a wide min-width to reduce scroll.
